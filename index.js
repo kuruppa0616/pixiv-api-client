@@ -5,7 +5,9 @@
 const axios = require('axios');
 const qs = require('qs');
 
-const BASE_URL = 'https://app-api.pixiv.net';
+const BASE_URL = "/api/";
+const AUTH_URL = "/api/auth/token/";
+const ACCOUNT_URL = "/api/account";
 const CLIENT_ID = 'KzEZED7aC0vird8jWyHM38mXjNTY';
 const CLIENT_SECRET = 'W9JZoJe00qPvJsiyCGT3CCtC6ZUtdpKpzMbNlUGP';
 const filter = 'for_ios';
@@ -54,7 +56,7 @@ class PixivApi {
       },
       data,
     };
-    return axios('https://oauth.secure.pixiv.net/auth/token', options)
+    return axios(AUTH_URL, options)
       .then(res => {
         this.auth = res.data.response;
         // eslint-disable-next-line no-unneeded-ternary
@@ -104,7 +106,7 @@ class PixivApi {
       },
       data,
     };
-    return axios('https://oauth.secure.pixiv.net/auth/token', options)
+    return axios(AUTH_URL, options)
       .then(res => {
         this.auth = res.data.response;
         return res.data.response;
@@ -137,7 +139,7 @@ class PixivApi {
       data,
     };
     return axios(
-      'https://accounts.pixiv.net/api/provisional-accounts/create',
+      ACCOUNT_URL,
       options
     )
       .then(res => res.data.body)
