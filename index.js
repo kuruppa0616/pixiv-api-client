@@ -30,7 +30,8 @@ class PixivApi {
       'Accept-Language': 'en-us',
       'App-OS-Version': '12.0.1',
       'App-Version': '7.2.2',
-      'User-Agent': 'PixivIOSApp/7.2.2 (iOS 12.0.1; iPhone8,2)',
+      // UAはproxyで設定する
+      // 'User-Agent': 'PixivIOSApp/7.2.2 (iOS 12.0.1; iPhone8,2)',
     };
   }
 
